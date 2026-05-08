@@ -3,821 +3,646 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Reset Metabólico — Nina Alvarez Tatar</title>
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,400;1,600;1,700&family=Jost:wght@300;400;500;600&family=DM+Mono:wght@400;500&display=swap" rel="stylesheet">
+<title>Decodifica tu Voz — Nicolás Mallea</title>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@600&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
+
+<!-- Meta Pixel -->
+<script>
+!function(f,b,e,v,n,t,s){if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+n.callMethod.apply(n,arguments):n.queue.push(arguments)};if(!f._fbq)f._fbq=n;
+n.push=n;n.loaded=!0;n.version='2.0';n.queue=[];t=b.createElement(e);t.async=!0;
+t.src=v;s=b.getElementsByTagName(e)[0];s.parentNode.insertBefore(t,s)}(window,
+document,'script','https://connect.facebook.net/en_US/fbevents.js');
+fbq('init', '1369328871569089');
+fbq('track', 'PageView');
+</script>
+<noscript><img height="1" width="1" style="display:none"
+src="https://www.facebook.com/tr?id=1369328871569089&ev=PageView&noscript=1"/></noscript>
+<!-- Fin Meta Pixel -->
 <style>
-  :root {
-    --black:       #f5f1ea;
-    --charcoal:    #eceae0;
-    --dark-green:  #e0edd8;
-    --forest:      #d4e8ca;
-    --moss:        #3d6438;
-    --sage:        #4a7a42;
-    --leaf:        #5e9454;
-    --mint:        #3a7232;
-    --cream:       #1e2e1c;
-    --parchment:   #2e4228;
-    --gold:        #7a5c10;
-    --gold-light:  #9a7820;
-    --muted:       #5a7854;
-    --white:       #ffffff;
-    --text-main:   #1e2e1c;
-    --text-soft:   #3a4e36;
-    --text-muted:  #5a7254;
-    --border:      rgba(60,100,50,0.18);
-    --border-hover:rgba(60,100,50,0.45);
-    --btn-bg:      #3a7232;
-    --btn-text:    #ffffff;
-    --nav-bg:      rgba(245,241,234,0.95);
-  }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body { font-family: 'Georgia', serif; background: #f0ede8; color: #1a1a1a; }
 
-  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
-  html { scroll-behavior: smooth; }
+  .lp { max-width: 720px; margin: 0 auto; padding: 48px 24px 80px; text-align: center; }
 
-  body {
-    background: #f5f1ea;
-    color: #1e2e1c;
-    font-family: 'Jost', sans-serif;
-    font-weight: 400;
-    line-height: 1.75;
-    overflow-x: hidden;
-    font-size: 17px;
-  }
+  /* Pretag */
+  .pretag { display: inline-block; background: #1a1a1a; color: #c9a84c; font-family: 'Arial', sans-serif; font-size: 11px; font-weight: 700; letter-spacing: 0.12em; text-transform: uppercase; padding: 6px 14px; border-radius: 2px; margin-bottom: 24px; }
 
-  /* ── BOTANICAL TEXTURE OVERLAY ── */
-  body::before {
-    content: '';
-    position: fixed; inset: 0; z-index: 0;
-    pointer-events: none;
-    background-image:
-      radial-gradient(ellipse 120% 80% at 90% 10%, rgba(45,74,45,0.18) 0%, transparent 55%),
-      radial-gradient(ellipse 80% 100% at 5% 90%, rgba(30,51,32,0.22) 0%, transparent 50%);
-  }
+  /* Banner negro */
+  .banner-auth { display: flex; align-items: center; gap: 18px; margin-bottom: 28px; background: #0d0d0d; border-radius: 6px; padding: 16px 22px; box-shadow: 0 2px 16px rgba(0,0,0,0.18); justify-content: center; }
+  .banner-avatar { width: 46px; height: 46px; border-radius: 50%; background: #ffffff; border: 1px solid #333; flex-shrink: 0; display: flex; align-items: center; justify-content: center; overflow: hidden; padding: 8px; }
+  .banner-avatar img { width: 100%; height: 100%; object-fit: contain; }
+  .banner-sep { width: 1px; height: 28px; background: #2a2a2a; flex-shrink: 0; }
+  .banner-info { display: flex; flex-direction: column; gap: 3px; text-align: left; }
+  .banner-name { font-family: 'DM Sans', 'Arial', sans-serif; font-size: 13px; font-weight: 500; color: #f0ede8; letter-spacing: -0.01em; }
+  .banner-name span { color: #555; font-weight: 400; }
+  .banner-programa { font-family: 'Cormorant Garamond', 'Georgia', serif; font-size: 13px; font-weight: 600; color: #c9a84c; letter-spacing: 0.04em; }
+  .banner-meta { font-family: 'DM Sans', 'Arial', sans-serif; font-size: 11px; color: #555; font-weight: 300; letter-spacing: 0.02em; margin-top: 1px; }
 
-  /* Leaf SVG decorative */
-  .leaf-deco {
-    position: absolute;
-    pointer-events: none;
-    opacity: 0.07;
-  }
+  /* Headlines */
+  .headline { font-size: clamp(22px, 4vw, 32px); font-weight: 700; line-height: 1.3; color: #1a1a1a; margin-bottom: 16px; }
+  .headline em { font-style: normal; color: #c9a84c; }
+  .subheadline { font-family: 'Arial', sans-serif; font-size: 15px; line-height: 1.7; color: #444; margin-bottom: 28px; }
 
-  /* ── UTILITY ── */
-  .container { max-width: 820px; margin: 0 auto; padding: 0 28px; position: relative; z-index: 1; }
-  .container--wide { max-width: 1080px; margin: 0 auto; padding: 0 28px; position: relative; z-index: 1; }
+  /* Video */
+  .video-wrap { background: #1a1a1a; border-radius: 6px; overflow: hidden; margin-bottom: 10px; position: relative; }
+  .video-inner { position: relative; padding-bottom: 56.25%; }
+  .video-inner iframe { position: absolute; inset: 0; width: 100%; height: 100%; border: 0; }
+  .video-note { font-family: 'Arial', sans-serif; font-size: 12px; color: #888; text-align: center; margin-bottom: 32px; font-style: italic; }
 
-  /* ── NAV ── */
-  nav {
-    position: fixed; top: 0; left: 0; right: 0; z-index: 200;
-    display: flex; align-items: center; justify-content: space-between;
-    padding: 20px 40px;
-    background: rgba(245,241,234,0.96);
-    backdrop-filter: blur(16px);
-    border-bottom: 1px solid rgba(60,100,50,0.15);
-    box-shadow: 0 2px 20px rgba(0,0,0,0.06);
-  }
-  .nav-logo {
-    font-family: 'DM Mono', monospace;
-    font-size: 10px; letter-spacing: 3.5px; text-transform: uppercase;
-    color: #3a7232;
-  }
-  .nav-cta {
-    font-family: 'Jost', sans-serif;
-    font-size: 11px; font-weight: 600;
-    letter-spacing: 2px; text-transform: uppercase;
-    color: #ffffff; background: #3a7232;
-    padding: 10px 24px; text-decoration: none;
-    transition: all 0.3s ease;
-  }
-  .nav-cta:hover { background: #2d5e28; }
+  /* Sound nudge */
+  .sound-nudge { position: absolute; top: 14px; left: 50%; transform: translateX(-50%); z-index: 10; background: rgba(13,13,13,0.85); backdrop-filter: blur(6px); border: 1px solid #c9a84c; border-radius: 30px; padding: 8px 18px; display: flex; align-items: center; gap: 8px; cursor: pointer; transition: opacity 0.4s, transform 0.4s; white-space: nowrap; }
+  .sound-nudge:hover { background: rgba(201,168,76,0.15); }
+  .sound-nudge.hidden { opacity: 0; pointer-events: none; transform: translateX(-50%) translateY(-8px); }
+  .sound-nudge-icon { font-size: 16px; animation: pulse 1.8s ease-in-out infinite; }
+  .sound-nudge-text { font-family: 'Arial', sans-serif; font-size: 12px; font-weight: 600; color: #c9a84c; letter-spacing: 0.04em; text-transform: uppercase; }
+  @keyframes pulse { 0%, 100% { transform: scale(1); } 50% { transform: scale(1.2); } }
 
-  /* ── HERO ── */
-  .hero {
-    min-height: 100vh;
-    display: flex; align-items: center;
-    position: relative; overflow: hidden;
-    padding: 120px 0 80px;
-  }
+  /* Divider */
+  .divider { border: none; border-top: 1px solid #e0dbd0; margin: 36px 0; }
 
-  /* Big decorative leaf background */
-  .hero-leaf-bg {
-    position: absolute; right: -80px; top: -60px;
-    width: 620px; height: 620px; opacity: 0.055;
-    pointer-events: none; z-index: 0;
-  }
-  .hero-leaf-bg2 {
-    position: absolute; left: -120px; bottom: -100px;
-    width: 500px; height: 500px; opacity: 0.04;
-    pointer-events: none; z-index: 0; transform: rotate(120deg);
-  }
+  /* Guarantee */
+  .guarantee { background: #fff; border: 1px solid #e0dbd0; border-left: 4px solid #c9a84c; border-radius: 4px; padding: 18px 20px; margin-bottom: 32px; }
+  .guarantee-title { font-family: 'Arial', sans-serif; font-size: 12px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.1em; color: #c9a84c; margin-bottom: 8px; }
+  .guarantee p { font-family: 'Arial', sans-serif; font-size: 13px; line-height: 1.7; color: #444; text-align: center; }
 
-  .hero-grid {
-    display: grid; grid-template-columns: 1fr 340px;
-    gap: 70px; align-items: center; position: relative; z-index: 1;
-  }
+  /* Testimonials */
+  .testimonial-row { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; margin-bottom: 32px; }
+  @media (max-width: 520px) { .testimonial-row { grid-template-columns: 1fr; } }
+  .testimonial { background: #fff; border: 1px solid #e0dbd0; border-radius: 4px; padding: 18px 20px; }
+  .testimonial-text { font-family: 'Arial', sans-serif; font-size: 13px; line-height: 1.7; color: #333; margin-bottom: 12px; font-style: italic; text-align: center; }
+  .testimonial-author { font-family: 'Arial', sans-serif; font-size: 11px; font-weight: 700; color: #888; text-transform: uppercase; letter-spacing: 0.08em; text-align: center; }
 
-  .hero-eyebrow {
-    font-family: 'DM Mono', monospace;
-    font-size: 10px; letter-spacing: 4px; text-transform: uppercase;
-    color: #3a7232; margin-bottom: 28px;
-    display: flex; align-items: center; gap: 14px;
-  }
-  .hero-eyebrow::before { content: ''; width: 28px; height: 1px; background: #3a7232; }
+  /* CTA */
+  .cta-section { text-align: center; }
+  .cta-instruction { font-family: 'Arial', sans-serif; font-size: 14px; color: #666; margin-bottom: 20px; line-height: 1.6; }
+  .calendly-mock { background: #fff; border: 1px solid #e0dbd0; border-radius: 6px; padding: 32px 24px; text-align: center; }
+  .calendly-mock .cm-title { font-size: 18px; font-weight: 700; color: #1a1a1a; margin-bottom: 6px; font-family: 'Arial', sans-serif; }
+  .calendly-mock .cm-sub { font-family: 'Arial', sans-serif; font-size: 13px; color: #888; margin-bottom: 24px; }
+  .cta-btn { display: inline-block; background: #1a1a1a; color: #c9a84c; font-family: 'Arial', sans-serif; font-size: 14px; font-weight: 700; letter-spacing: 0.06em; padding: 16px 40px; border-radius: 3px; text-decoration: none; text-transform: uppercase; }
 
-  h1 {
-    font-family: 'Cormorant Garamond', serif;
-    font-size: clamp(40px, 5.5vw, 64px);
-    font-weight: 700; line-height: 1.08;
-    color: #1e2e1c; margin-bottom: 28px;
-    letter-spacing: -0.5px;
-  }
-  h1 em {
-    font-style: italic; color: #3a7232;
-    display: block; font-weight: 600;
-  }
+  /* ── BLOQUES NUEVOS ── */
 
-  .hero-sub {
-    font-size: 18px; line-height: 1.8; font-weight: 400;
-    color: #3a4e36; margin-bottom: 20px;
-    border-left: 3px solid #5e9454;
-    padding-left: 20px;
-  }
-  .hero-sub2 {
-    font-size: 17px; line-height: 1.8; font-weight: 300;
-    color: #5a7254; margin-bottom: 44px;
-    font-style: italic;
-    padding-left: 23px;
-  }
+  /* Dolor / Reconocimiento */
+  .pain-block { background: #1a1a1a; border-radius: 6px; padding: 32px 28px; margin-bottom: 36px; text-align: left; }
+  .pain-block .pain-label { font-family: 'Arial', sans-serif; font-size: 11px; font-weight: 700; letter-spacing: 0.12em; text-transform: uppercase; color: #c9a84c; margin-bottom: 14px; }
+  .pain-block .pain-list { list-style: none; padding: 0; margin: 0 0 20px 0; }
+  .pain-block .pain-list li { font-family: 'Arial', sans-serif; font-size: 14px; color: #d4d0ca; line-height: 1.8; padding-left: 20px; position: relative; }
+  .pain-block .pain-list li::before { content: '—'; position: absolute; left: 0; color: #c9a84c; font-weight: 700; }
+  .pain-block .pain-close { font-family: 'Arial', sans-serif; font-size: 14px; color: #f0ede8; line-height: 1.7; font-style: italic; border-top: 1px solid #2e2e2e; padding-top: 18px; margin-top: 4px; }
 
-  /* Image box */
-  .hero-img-wrap { position: relative; }
-  .hero-img-wrap::before {
-    content: '';
-    position: absolute; inset: 12px -12px -12px 12px;
-    border: 1px solid rgba(107,143,94,0.25); z-index: 0;
-  }
-  .hero-img {
-    position: relative; z-index: 1;
-    width: 100%; aspect-ratio: 3/4;
-    background: var(--dark-green);
-    border: 1px solid rgba(107,143,94,0.2);
-    display: flex; flex-direction: column;
-    align-items: center; justify-content: center;
-    gap: 14px; overflow: hidden;
-  }
-  .hero-img-placeholder {
-    text-align: center;
-    font-family: 'DM Mono', monospace;
-    font-size: 10px; letter-spacing: 2px;
-    color: var(--muted); line-height: 2;
-  }
-  .hero-img-placeholder svg { opacity: 0.25; margin-bottom: 8px; }
-  .hero-badge {
-    position: absolute; bottom: -16px; left: -16px; z-index: 2;
-    background: var(--sage); color: var(--cream);
-    padding: 12px 18px;
-    font-family: 'DM Mono', monospace;
-    font-size: 9px; letter-spacing: 2px; text-transform: uppercase;
-    max-width: 170px; line-height: 1.7;
-  }
+  /* Para quién es */
+  .for-who { margin-bottom: 36px; }
+  .for-who-title { font-family: 'Cormorant Garamond', 'Georgia', serif; font-size: 22px; font-weight: 600; color: #1a1a1a; margin-bottom: 6px; }
+  .for-who-sub { font-family: 'Arial', sans-serif; font-size: 13px; color: #888; margin-bottom: 22px; }
+  .for-who-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; }
+  @media (max-width: 520px) { .for-who-grid { grid-template-columns: 1fr; } }
+  .for-who-card { background: #fff; border: 1px solid #e0dbd0; border-radius: 4px; padding: 16px 18px; text-align: left; }
+  .for-who-card.yes { border-left: 3px solid #c9a84c; }
+  .for-who-card.no { border-left: 3px solid #d4cfc8; }
+  .for-who-card .fwc-label { font-family: 'Arial', sans-serif; font-size: 10px; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase; margin-bottom: 10px; }
+  .for-who-card.yes .fwc-label { color: #c9a84c; }
+  .for-who-card.no .fwc-label { color: #aaa; }
+  .for-who-card ul { list-style: none; padding: 0; margin: 0; }
+  .for-who-card ul li { font-family: 'Arial', sans-serif; font-size: 12px; color: #444; line-height: 1.8; padding-left: 14px; position: relative; }
+  .for-who-card ul li::before { position: absolute; left: 0; font-size: 11px; }
+  .for-who-card.yes ul li::before { content: '✓'; color: #c9a84c; }
+  .for-who-card.no ul li::before { content: '✕'; color: #bbb; }
 
-  /* ── BUTTONS ── */
-  .btn {
-    display: inline-block; text-decoration: none;
-    font-family: 'Jost', sans-serif;
-    font-weight: 600; font-size: 14px;
-    letter-spacing: 1.5px; text-transform: uppercase;
-    padding: 18px 40px;
-    transition: all 0.3s ease; cursor: pointer; border: none;
-  }
-  .btn-primary {
-    background: #3a7232; color: #ffffff;
-  }
-  .btn-primary:hover { background: #2d5e28; transform: translateY(-2px); box-shadow: 0 10px 30px rgba(58,114,50,0.25); }
-  .btn-outline {
-    background: transparent; color: #3a7232;
-    border: 2px solid #3a7232;
-  }
-  .btn-outline:hover { background: rgba(58,114,50,0.06); }
+  /* Beneficios / Cómo funciona */
+  .benefits { margin-bottom: 36px; text-align: left; }
+  .benefits-title { font-family: 'Cormorant Garamond', 'Georgia', serif; font-size: 22px; font-weight: 600; color: #1a1a1a; margin-bottom: 6px; text-align: center; }
+  .benefits-sub { font-family: 'Arial', sans-serif; font-size: 13px; color: #888; margin-bottom: 24px; text-align: center; }
+  .benefits-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; }
+  @media (max-width: 520px) { .benefits-grid { grid-template-columns: 1fr; } }
+  .benefit-item { background: #fff; border: 1px solid #e0dbd0; border-radius: 4px; padding: 18px 20px; }
+  .benefit-item .bi-num { font-family: 'Cormorant Garamond', 'Georgia', serif; font-size: 28px; font-weight: 600; color: #e8e2d8; line-height: 1; margin-bottom: 8px; }
+  .benefit-item .bi-title { font-family: 'Arial', sans-serif; font-size: 13px; font-weight: 700; color: #1a1a1a; margin-bottom: 6px; }
+  .benefit-item .bi-body { font-family: 'Arial', sans-serif; font-size: 12px; color: #666; line-height: 1.7; }
 
-  /* ── DIVIDER ── */
-  .divider {
-    height: 1px;
-    background: linear-gradient(to right, transparent, rgba(107,143,94,0.25), transparent);
-  }
+  /* Proceso / Cómo funciona */
+  .proceso { background: #fff; border: 1px solid #e0dbd0; border-radius: 6px; padding: 28px 24px; margin-bottom: 36px; }
+  .proceso-title { font-family: 'Cormorant Garamond', 'Georgia', serif; font-size: 22px; font-weight: 600; color: #1a1a1a; margin-bottom: 6px; text-align: center; }
+  .proceso-sub { font-family: 'Arial', sans-serif; font-size: 13px; color: #888; margin-bottom: 24px; text-align: center; }
+  .proceso-steps { display: flex; flex-direction: column; gap: 0; }
+  .proceso-step { display: flex; gap: 18px; align-items: flex-start; padding: 16px 0; border-bottom: 1px solid #f0ede8; }
+  .proceso-step:last-child { border-bottom: none; padding-bottom: 0; }
+  .ps-num { min-width: 32px; height: 32px; border-radius: 50%; background: #1a1a1a; color: #c9a84c; font-family: 'Cormorant Garamond', serif; font-size: 16px; font-weight: 600; display: flex; align-items: center; justify-content: center; flex-shrink: 0; }
+  .ps-content { flex: 1; text-align: left; }
+  .ps-title { font-family: 'Arial', sans-serif; font-size: 13px; font-weight: 700; color: #1a1a1a; margin-bottom: 4px; }
+  .ps-body { font-family: 'Arial', sans-serif; font-size: 12px; color: #666; line-height: 1.7; }
 
-  /* ── TICKER ── */
-  .ticker {
-    background: var(--forest);
-    border-top: 1px solid rgba(107,143,94,0.2);
-    border-bottom: 1px solid rgba(107,143,94,0.2);
-    padding: 16px 0; overflow: hidden;
-  }
-  .ticker-inner {
-    display: flex; gap: 0;
-    animation: scroll 25s linear infinite;
-    white-space: nowrap;
-  }
-  @keyframes scroll { 0% { transform: translateX(0); } 100% { transform: translateX(-50%); } }
-  .ticker-item {
-    display: inline-flex; align-items: center; gap: 10px;
-    font-family: 'DM Mono', monospace;
-    font-size: 10px; letter-spacing: 2.5px; text-transform: uppercase;
-    color: var(--mint); padding: 0 40px; opacity: 0.85;
-  }
-  .ticker-item::before { content: '✦'; font-size: 7px; }
+  /* Urgencia / Escasez */
+  .urgency { background: #0d0d0d; border-radius: 6px; padding: 24px 28px; margin-bottom: 36px; display: flex; align-items: flex-start; gap: 18px; text-align: left; }
+  .urgency-icon { font-size: 22px; flex-shrink: 0; margin-top: 2px; }
+  .urgency-title { font-family: 'Arial', sans-serif; font-size: 12px; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase; color: #c9a84c; margin-bottom: 8px; }
+  .urgency p { font-family: 'Arial', sans-serif; font-size: 13px; color: #d4d0ca; line-height: 1.7; }
+  .urgency strong { color: #f0ede8; }
 
-  /* ── SECTION BASE ── */
-  section { position: relative; overflow: hidden; }
-  .sec-label {
-    font-family: 'DM Mono', monospace;
-    font-size: 10px; letter-spacing: 4px; text-transform: uppercase;
-    color: #3a7232; margin-bottom: 18px;
-    display: flex; align-items: center; gap: 12px;
-  }
-  .sec-label::before { content: ''; width: 22px; height: 1px; background: #3a7232; }
+  /* FAQ */
+  .faq { margin-bottom: 36px; }
+  .faq-title { font-family: 'Cormorant Garamond', 'Georgia', serif; font-size: 22px; font-weight: 600; color: #1a1a1a; margin-bottom: 6px; text-align: center; }
+  .faq-sub { font-family: 'Arial', sans-serif; font-size: 13px; color: #888; margin-bottom: 24px; text-align: center; }
+  .faq-item { border-bottom: 1px solid #e0dbd0; }
+  .faq-item:first-of-type { border-top: 1px solid #e0dbd0; }
+  .faq-q { display: flex; justify-content: space-between; align-items: flex-start; gap: 16px; padding: 16px 0; cursor: pointer; }
+  .faq-q-text { font-family: 'Arial', sans-serif; font-size: 13px; font-weight: 700; color: #1a1a1a; text-align: left; line-height: 1.5; }
+  .faq-icon { font-family: 'Arial', sans-serif; font-size: 18px; color: #c9a84c; font-weight: 300; flex-shrink: 0; transition: transform 0.2s; line-height: 1; }
+  .faq-item.open .faq-icon { transform: rotate(45deg); }
+  .faq-a { font-family: 'Arial', sans-serif; font-size: 13px; color: #555; line-height: 1.75; padding-bottom: 16px; text-align: left; display: none; }
+  .faq-item.open .faq-a { display: block; }
 
-  h2 {
-    font-family: 'Cormorant Garamond', serif;
-    font-size: clamp(32px, 4vw, 50px);
-    font-weight: 700; line-height: 1.15; letter-spacing: -0.3px;
-    color: #1e2e1c; margin-bottom: 28px;
-  }
-  h2 em { color: #3a7232; font-style: italic; font-weight: 600; }
+  /* CTA Anchor (botones intermedios) */
+  .cta-anchor { text-align: center; margin: 32px 0; }
+  .cta-anchor-btn { display: inline-block; background: #1a1a1a; color: #c9a84c; font-family: 'Arial', sans-serif; font-size: 13px; font-weight: 700; letter-spacing: 0.06em; padding: 15px 36px; border-radius: 3px; text-transform: uppercase; border: none; cursor: pointer; transition: background 0.2s; }
+  .cta-anchor-btn:hover { background: #2e2e2e; }
 
-  /* ── CONFLICT ── */
-  .sec-conflict { padding: 100px 0; background: #eceae0; }
+  /* Formulario */
+  .form-section { background: #fff; border: 1px solid #e0dbd0; border-radius: 6px; padding: 36px 32px; margin-bottom: 0; text-align: left; }
+  @media (max-width: 520px) { .form-section { padding: 28px 20px; } }
+  .form-section-pretitle { font-family: 'Arial', sans-serif; font-size: 11px; font-weight: 700; letter-spacing: 0.12em; text-transform: uppercase; color: #c9a84c; margin-bottom: 10px; text-align: center; }
+  .form-section-title { font-family: 'Cormorant Garamond', 'Georgia', serif; font-size: 24px; font-weight: 600; color: #1a1a1a; margin-bottom: 10px; text-align: center; line-height: 1.3; }
+  .form-section-intro { font-family: 'Arial', sans-serif; font-size: 13px; color: #666; line-height: 1.7; margin-bottom: 28px; text-align: center; }
+  .form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; margin-bottom: 0; }
+  @media (max-width: 520px) { .form-row { grid-template-columns: 1fr; } }
+  .form-group { margin-bottom: 22px; }
+  .form-label { display: block; font-family: 'Arial', sans-serif; font-size: 12px; font-weight: 700; color: #1a1a1a; margin-bottom: 10px; line-height: 1.5; }
+  .form-label span { color: #c9a84c; }
+  .form-input { width: 100%; font-family: 'Arial', sans-serif; font-size: 13px; color: #1a1a1a; background: #faf9f7; border: 1px solid #e0dbd0; border-radius: 3px; padding: 11px 14px; outline: none; transition: border-color 0.15s; }
+  .form-input:focus { border-color: #c9a84c; background: #fff; }
+  .form-input::placeholder { color: #bbb; }
+  .form-options { display: flex; flex-direction: column; gap: 8px; }
+  .form-option { display: flex; align-items: flex-start; gap: 10px; cursor: pointer; padding: 10px 12px; border: 1px solid #e0dbd0; border-radius: 3px; transition: border-color 0.15s, background 0.15s; }
+  .form-option:hover { border-color: #c9a84c; background: #faf9f7; }
+  .form-option input[type="radio"] { margin-top: 2px; flex-shrink: 0; accent-color: #c9a84c; }
+  .form-option-label { font-family: 'Arial', sans-serif; font-size: 13px; color: #333; line-height: 1.5; }
+  .form-textarea { width: 100%; font-family: 'Arial', sans-serif; font-size: 13px; color: #1a1a1a; background: #faf9f7; border: 1px solid #e0dbd0; border-radius: 3px; padding: 11px 14px; outline: none; resize: vertical; min-height: 90px; transition: border-color 0.15s; }
+  .form-textarea:focus { border-color: #c9a84c; background: #fff; }
+  .form-textarea::placeholder { color: #bbb; }
+  .form-divider { border: none; border-top: 1px solid #f0ede8; margin: 24px 0; }
+  .form-submit { width: 100%; background: #1a1a1a; color: #c9a84c; font-family: 'Arial', sans-serif; font-size: 14px; font-weight: 700; letter-spacing: 0.06em; padding: 18px 24px; border-radius: 3px; border: none; cursor: pointer; text-transform: uppercase; transition: background 0.2s; margin-top: 6px; }
+  .form-submit:hover { background: #2e2e2e; }
+  .form-note { font-family: 'Arial', sans-serif; font-size: 11px; color: #aaa; text-align: center; margin-top: 12px; line-height: 1.7; }
 
-  .conflict-text {
-    font-size: 18px; line-height: 1.85; color: #2e4228;
-    margin-bottom: 14px;
-  }
-  .conflict-quote {
-    font-family: 'Cormorant Garamond', serif;
-    font-size: 22px; font-style: italic; font-weight: 500;
-    color: #4a6a44;
-    margin-bottom: 52px; line-height: 1.6;
-    border-left: 3px solid #5e9454; padding-left: 20px;
-  }
+  /* CTA intermedio (botón ancla) */
+  .cta-anchor { text-align: center; margin: 32px 0; }
+  .cta-anchor-btn { display: inline-block; background: #1a1a1a; color: #c9a84c; font-family: 'Arial', sans-serif; font-size: 13px; font-weight: 700; letter-spacing: 0.08em; padding: 14px 36px; border-radius: 3px; text-decoration: none; text-transform: uppercase; cursor: pointer; border: none; transition: background 0.2s; }
+  .cta-anchor-btn:hover { background: #2e2e2e; }
 
-  .pain-label {
-    font-family: 'DM Mono', monospace;
-    font-size: 11px; letter-spacing: 3px; text-transform: uppercase;
-    color: #5a7854; margin-bottom: 24px;
-  }
-  .pain-grid { display: grid; grid-template-columns: repeat(3,1fr); gap: 16px; }
-  .pain-card {
-    background: #ffffff;
-    border: 1px solid rgba(60,100,50,0.15);
-    padding: 36px 28px;
-    transition: border-color 0.3s, transform 0.3s, box-shadow 0.3s;
-    box-shadow: 0 2px 12px rgba(0,0,0,0.04);
-  }
-  .pain-card:hover { border-color: rgba(58,114,50,0.4); transform: translateY(-4px); box-shadow: 0 8px 30px rgba(0,0,0,0.08); }
-  .pain-icon { font-size: 32px; margin-bottom: 18px; display: block; }
-  .pain-title {
-    font-family: 'Cormorant Garamond', serif;
-    font-size: 22px; font-style: italic; font-weight: 700;
-    color: #1e2e1c; margin-bottom: 10px;
-  }
-  .pain-body { font-size: 15px; color: #5a7254; line-height: 1.7; font-weight: 400; }
-
-  /* ── MECHANISM ── */
-  .sec-mech { padding: 100px 0; background: #f5f1ea; }
-  .mech-intro { font-size: 18px; color: #3a4e36; margin-bottom: 14px; }
-  .mech-statement { font-family: 'Cormorant Garamond', serif; font-size: clamp(24px, 3vw, 36px); font-weight: 700; line-height: 1.2; color: #1e2e1c; margin-bottom: 18px; }
-  .mech-statement em { color: #3a7232; font-style: italic; font-weight: 600; }
-  .mech-sub { font-size: 15px; color: #5a7254; margin-bottom: 64px; }
-
-  .pillars { display: grid; grid-template-columns: repeat(3,1fr); gap: 20px; }
-  .pillar { background: #ffffff; border: 1px solid rgba(60,100,50,0.15); padding: 40px 30px; position: relative; transition: all 0.35s; overflow: hidden; box-shadow: 0 2px 12px rgba(0,0,0,0.04); }
-  .pillar::before { content: ''; position: absolute; top: 0; left: 0; right: 0; height: 3px; background: linear-gradient(to right, #3a7232, #7aaa72); transform: scaleX(0); transform-origin: left; transition: transform 0.5s ease; }
-  .pillar:hover::before { transform: scaleX(1); }
-  .pillar:hover { transform: translateY(-5px); box-shadow: 0 12px 35px rgba(0,0,0,0.1); }
-  .pillar-num { font-family: 'DM Mono', monospace; font-size: 10px; letter-spacing: 3px; color: #5e9454; margin-bottom: 22px; display: block; }
-  .pillar-title { font-family: 'Cormorant Garamond', serif; font-size: 24px; font-weight: 700; color: #1e2e1c; margin-bottom: 12px; }
-  .pillar-body { font-size: 15px; color: #5a7254; line-height: 1.75; font-weight: 400; }
-  .mech-leaf { position: absolute; right: -60px; top: 50%; transform: translateY(-50%); width: 400px; opacity: 0.04; pointer-events: none; }
-
-  /* ── SOCIAL PROOF ── */
-  .sec-social { padding: 100px 0; background: #eceae0; }
-  .social-head { text-align: center; margin-bottom: 60px; }
-  .social-sub { font-size: 16px; color: #5a7254; margin-top: 8px; }
-
-  .videos-grid { display: grid; grid-template-columns: repeat(2,1fr); gap: 16px; margin-bottom: 16px; }
-  .video-slot {
-    position: relative;
-    width: 100%;
-    padding-top: 177.78%;
-    background: #000;
-    border: 1px solid rgba(60,100,50,0.15);
-    overflow: hidden;
-    box-shadow: 0 4px 20px rgba(0,0,0,0.1);
-  }
-  .video-slot iframe {
-    position: absolute;
-    top: 0; left: 0;
-    width: 100%; height: 100%;
-    border: none;
-  }
-
-  .stats-row { display: grid; grid-template-columns: repeat(4,1fr); gap: 2px; }
-  .stat-box { background: #3a7232; padding: 32px 20px; text-align: center; transition: background 0.3s; }
-  .stat-box:hover { background: #2d5e28; }
-  .stat-val { font-family: 'Cormorant Garamond', serif; font-size: 44px; font-weight: 700; color: #ffffff; display: block; margin-bottom: 6px; }
-  .stat-lbl { font-family: 'DM Mono', monospace; font-size: 9px; letter-spacing: 2px; text-transform: uppercase; color: rgba(255,255,255,0.75); }
-
-  /* ── FORM ── */
-  .sec-form { padding: 100px 0; background: #f5f1ea; }
-  .sec-form::before { content: ''; position: absolute; inset: 0; background: radial-gradient(ellipse 70% 60% at 50% 50%, rgba(94,148,84,0.05) 0%, transparent 65%); pointer-events: none; }
-  .form-head { text-align: center; margin-bottom: 60px; position: relative; z-index: 1; }
-  .form-head p { font-size: 17px; color: #3a4e36; max-width: 500px; margin: 0 auto; font-weight: 400; }
-  .form-wrap { max-width: 640px; margin: 0 auto; position: relative; z-index: 1; }
-  .form-step { background: #ffffff; border: 1px solid rgba(60,100,50,0.15); padding: 38px 36px; margin-bottom: 16px; transition: border-color 0.3s; box-shadow: 0 2px 12px rgba(0,0,0,0.04); }
-  .form-step:focus-within { border-color: rgba(58,114,50,0.45); }
-  .step-tag { font-family: 'DM Mono', monospace; font-size: 9px; letter-spacing: 3px; text-transform: uppercase; color: #5e9454; margin-bottom: 14px; display: block; }
-  .step-q { font-family: 'Cormorant Garamond', serif; font-size: 22px; font-weight: 700; color: #1e2e1c; margin-bottom: 22px; line-height: 1.4; }
-  .opts { display: flex; flex-direction: column; gap: 10px; }
-  .opt { display: flex; align-items: center; gap: 14px; padding: 14px 18px; border: 1px solid rgba(60,100,50,0.18); cursor: pointer; transition: all 0.25s; font-size: 16px; font-weight: 400; color: #3a4e36; }
-  .opt:hover { border-color: rgba(58,114,50,0.45); color: #1e2e1c; background: rgba(58,114,50,0.03); }
-  .opt.selected { border-color: #3a7232; color: #1e2e1c; background: rgba(58,114,50,0.06); }
-  .opt input { accent-color: #3a7232; width: 18px; height: 18px; flex-shrink: 0; }
-  .form-footnote { font-size: 13px; color: #5a7254; margin-top: 14px; line-height: 1.8; font-style: italic; }
-
-  /* Contact fields */
-  .contact-fields { display: flex; flex-direction: column; gap: 12px; }
-  .field-row { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; }
-  .field-group { display: flex; flex-direction: column; gap: 7px; }
-  .field-label { font-family: 'DM Mono', monospace; font-size: 9px; letter-spacing: 2px; text-transform: uppercase; color: #5e9454; }
-  .field-input { background: #f5f9f4; border: 1px solid rgba(60,100,50,0.2); color: #1e2e1c; font-family: 'Jost', sans-serif; font-size: 16px; font-weight: 400; padding: 14px 16px; outline: none; transition: border-color 0.25s; width: 100%; }
-  .field-input::placeholder { color: #8aaa84; }
-  .field-input:focus { border-color: rgba(58,114,50,0.5); }
-  @media (max-width: 600px) { .field-row { grid-template-columns: 1fr; } }
-
-  /* Error states */
-  .step-error { border-color: rgba(180,50,50,0.5) !important; position: relative; }
-  .step-error::after { content: 'Este campo es obligatorio'; position: absolute; bottom: -22px; left: 0; font-family: 'DM Mono', monospace; font-size: 9px; letter-spacing: 1.5px; color: #b43232; text-transform: uppercase; }
-  .input-error { border-color: rgba(180,50,50,0.5) !important; }
-  .input-error:focus { border-color: rgba(180,50,50,0.7) !important; }
-
-  .form-cta { text-align: center; margin-top: 36px; }
-  .form-disclaimer { font-size: 13px; color: #5a7254; text-align: center; margin-top: 18px; line-height: 1.8; }
-
-  /* ── FINAL CTA ── */
-  .sec-cta { padding: 120px 0; text-align: center; background: #3a7232; position: relative; }
-  .sec-cta::before { content: ''; position: absolute; inset: 0; background: radial-gradient(ellipse 60% 80% at 50% 50%, rgba(255,255,255,0.06) 0%, transparent 65%); pointer-events: none; }
-  .cta-leaf { position: absolute; left: 50%; top: 50%; transform: translate(-50%, -50%); width: 700px; opacity: 0.06; pointer-events: none; }
-  .cta-inner { position: relative; z-index: 1; }
-  .cta-pre { font-family: 'DM Mono', monospace; font-size: 10px; letter-spacing: 4px; text-transform: uppercase; color: rgba(255,255,255,0.7); margin-bottom: 24px; display: block; }
-  .cta-h { font-family: 'Cormorant Garamond', serif; font-size: clamp(40px, 6vw, 68px); font-weight: 700; line-height: 1.08; color: #ffffff; margin-bottom: 20px; }
-  .cta-h em { color: rgba(255,255,255,0.85); font-style: italic; font-weight: 500; display: block; }
-  .cta-sub { font-size: 18px; color: rgba(255,255,255,0.82); max-width: 460px; margin: 0 auto 50px; line-height: 1.8; }
-  .btn-group { display: flex; gap: 14px; justify-content: center; flex-wrap: wrap; }
-  .sec-cta .btn-primary { background: #ffffff; color: #3a7232; }
-  .sec-cta .btn-primary:hover { background: #f0ece4; }
-  .sec-cta .btn-outline { color: #ffffff; border: 2px solid rgba(255,255,255,0.6); }
-  .sec-cta .btn-outline:hover { background: rgba(255,255,255,0.1); border-color: #ffffff; }
-
-  /* ── FOOTER ── */
-  footer { background: #1e2e1c; padding: 40px 0; border-top: 1px solid rgba(60,100,50,0.2); }
-  .footer-inner { display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 20px; }
-  .footer-brand { font-family: 'DM Mono', monospace; font-size: 10px; letter-spacing: 3px; text-transform: uppercase; color: #7aaa72; }
-  .footer-note { font-size: 12px; color: #5a7a54; max-width: 420px; line-height: 1.75; }
-
-  /* ── ANIMATIONS ── */
-  .fade-up { opacity: 0; transform: translateY(28px); transition: opacity 0.75s ease, transform 0.75s ease; }
-  .fade-up.visible { opacity: 1; transform: translateY(0); }
-
-  /* ── RESPONSIVE ── */
-  @media (max-width: 768px) {
-    nav { padding: 16px 20px; }
-    .hero { padding: 100px 0 60px; }
-    .hero-grid { grid-template-columns: 1fr; }
-    .hero-img-wrap { display: none; }
-    .pain-grid { grid-template-columns: 1fr; }
-    .pillars { grid-template-columns: 1fr; }
-    .videos-grid { grid-template-columns: 1fr; }
-    .stats-row { grid-template-columns: repeat(2,1fr); }
-    .footer-inner { flex-direction: column; text-align: center; }
-    .form-step { padding: 28px 22px; }
-  }
+  /* Formulario de pre-calificación */
+  .form-section { background: #fff; border: 1px solid #e0dbd0; border-radius: 6px; padding: 32px 28px; margin-bottom: 0; scroll-margin-top: 24px; }
+  .form-section-pretitle { font-family: 'Arial', sans-serif; font-size: 11px; font-weight: 700; letter-spacing: 0.12em; text-transform: uppercase; color: #c9a84c; margin-bottom: 10px; }
+  .form-section-title { font-family: 'Cormorant Garamond', 'Georgia', serif; font-size: 22px; font-weight: 600; color: #1a1a1a; margin-bottom: 8px; }
+  .form-section-intro { font-family: 'Arial', sans-serif; font-size: 13px; color: #666; line-height: 1.7; margin-bottom: 28px; }
+  .form-group { margin-bottom: 22px; text-align: left; }
+  .form-label { font-family: 'Arial', sans-serif; font-size: 12px; font-weight: 700; color: #1a1a1a; margin-bottom: 8px; display: block; }
+  .form-label span { color: #c9a84c; }
+  .form-options { display: flex; flex-direction: column; gap: 8px; }
+  .form-option { display: flex; align-items: center; gap: 10px; cursor: pointer; }
+  .form-option input[type="radio"] { accent-color: #c9a84c; width: 15px; height: 15px; cursor: pointer; flex-shrink: 0; }
+  .form-option-label { font-family: 'Arial', sans-serif; font-size: 13px; color: #444; cursor: pointer; line-height: 1.4; }
+  .form-textarea { width: 100%; border: 1px solid #e0dbd0; border-radius: 4px; padding: 12px 14px; font-family: 'Arial', sans-serif; font-size: 13px; color: #333; resize: vertical; min-height: 90px; outline: none; transition: border-color 0.2s; }
+  .form-textarea:focus { border-color: #c9a84c; }
+  .form-textarea::placeholder { color: #bbb; }
+  .form-submit { display: block; width: 100%; background: #1a1a1a; color: #c9a84c; font-family: 'Arial', sans-serif; font-size: 14px; font-weight: 700; letter-spacing: 0.08em; padding: 16px; border-radius: 3px; border: none; text-transform: uppercase; cursor: pointer; margin-top: 8px; transition: background 0.2s; }
+  .form-submit:hover { background: #2e2e2e; }
+  .form-note { font-family: 'Arial', sans-serif; font-size: 11px; color: #aaa; margin-top: 12px; text-align: center; line-height: 1.6; }
 </style>
 </head>
 <body>
 
-<!-- NAV -->
-<nav>
-  <span class="nav-logo">Nina Alvarez Tatar · Reset Metabólico</span>
-  <a href="#diagnostico" class="nav-cta">Solicitar diagnóstico</a>
-</nav>
+<div class="lp">
 
-<!-- HERO -->
-<section class="hero">
-  <!-- Decorative leaves -->
-  <svg class="hero-leaf-bg" viewBox="0 0 400 400" fill="none" xmlns="http://www.w3.org/2000/svg">
-    <path d="M200 20 C280 60 380 150 360 280 C340 380 220 400 140 360 C60 320 20 200 60 120 C100 40 160 10 200 20Z" fill="#4a6741"/>
-    <path d="M200 20 C200 20 200 400 200 400" stroke="#6b8f5e" stroke-width="2"/>
-    <path d="M120 100 C160 120 200 100 240 120" stroke="#6b8f5e" stroke-width="1.5" opacity="0.5"/>
-    <path d="M100 160 C150 180 200 160 260 180" stroke="#6b8f5e" stroke-width="1.5" opacity="0.5"/>
-    <path d="M100 220 C155 240 200 220 265 240" stroke="#6b8f5e" stroke-width="1.5" opacity="0.4"/>
-    <path d="M110 280 C158 298 200 280 260 298" stroke="#6b8f5e" stroke-width="1.5" opacity="0.3"/>
-  </svg>
-  <svg class="hero-leaf-bg2" viewBox="0 0 400 400" fill="none" xmlns="http://www.w3.org/2000/svg">
-    <path d="M200 20 C280 60 380 150 360 280 C340 380 220 400 140 360 C60 320 20 200 60 120 C100 40 160 10 200 20Z" fill="#2d4a2d"/>
-    <path d="M200 20 C200 20 200 400 200 400" stroke="#4a6741" stroke-width="2"/>
-  </svg>
+  <span class="pretag">Para profesionales Seniors, Managers y Líderes de Equipo</span>
 
-  <div class="container--wide">
-    <div class="hero-grid">
-      <div class="fade-up">
-        <div class="hero-eyebrow">Programa 1 a 1 · Exclusivo</div>
-        <h1>Volvé a tener el control de tu energía,<em>tu cuerpo y tus decisiones.</em></h1>
-        <p class="hero-sub">Un programa 1 a 1 para empresarios, profesionales y líderes de alto rendimiento con diabetes tipo 2, prediabetes o sobrepeso que necesitan resultados reales sin perder tiempo en estrategias que no funcionan.</p>
-        <p class="hero-sub2">Normalizá tus glucemias, bajá kilos de grasa aumentando masa muscular y recuperá tu energía, motivación y claridad mental sin soluciones genéricas y sin depender de medicación a largo plazo.</p>
-        <a href="#diagnostico" class="btn btn-primary">Quiero saber más</a>
-      </div>
-      <div class="hero-img-wrap fade-up" style="transition-delay:.2s">
-        <div class="hero-img">
-          <!--
-            REEMPLAZÁ ESTE BLOQUE CON:
-            <img src="nina.jpg" alt="Nina Alvarez Tatar" style="width:100%;height:100%;object-fit:cover;">
-          -->
-          <div class="hero-img-placeholder">
-            <svg width="44" height="44" viewBox="0 0 24 24" fill="none" stroke="#6b8f5e" stroke-width="1">
-              <rect x="3" y="3" width="18" height="18" rx="2"/>
-              <circle cx="8.5" cy="8.5" r="1.5"/>
-              <path d="M21 15l-5-5L5 21"/>
-            </svg>
-            <div>FOTO NINA<br/>BLAZER · ESCRITORIO<br/>(placeholder)</div>
-          </div>
-        </div>
-        <div class="hero-badge">Protocolo 1:1 · 12 semanas · Cupos limitados</div>
+  <div class="banner-auth">
+    <div class="banner-avatar">
+      <img src="data:image/png;base64,/9j/4AAQSkZJRgABAQAAAQABAAD/4gHYSUNDX1BST0ZJTEUAAQEAAAHIAAAAAAQwAABtbnRyUkdCIFhZWiAH4AABAAEAAAAAAABhY3NwAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAQAA9tYAAQAAAADTLQAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAlkZXNjAAAA8AAAACRyWFlaAAABFAAAABRnWFlaAAABKAAAABRiWFlaAAABPAAAABR3dHB0AAABUAAAABRyVFJDAAABZAAAAChnVFJDAAABZAAAAChiVFJDAAABZAAAAChjcHJ0AAABjAAAADxtbHVjAAAAAAAAAAEAAAAMZW5VUwAAAAgAAAAcAHMAUgBHAEJYWVogAAAAAAAAb6IAADj1AAADkFhZWiAAAAAAAABimQAAt4UAABjaWFlaIAAAAAAAACSgAAAPhAAAts9YWVogAAAAAAAA9tYAAQAAAADTLXBhcmEAAAAAAAQAAAACZmYAAPKnAAANWQAAE9AAAApbAAAAAAAAAABtbHVjAAAAAAAAAAEAAAAMZW5VUwAAACAAAAAcAEcAbwBvAGcAbABlACAASQBuAGMALgAgADIAMAAxADb/2wBDAAUDBAQEAwUEBAQFBQUGBwwIBwcHBw8LCwkMEQ8SEhEPERETFhwXExQaFRERGCEYGh0dHx8fExciJCIeJBweHx7/2wBDAQUFBQcGBw4ICA4eFBEUHh4eHh4eHh4eHh4eHh4eHh4eHh4eHh4eHh4eHh4eHh4eHh4eHh4eHh4eHh4eHh4eHh7/wAARCAVGBDgDASIAAhEBAxEB/8QAHQABAAMBAQEBAQEAAAAAAAAAAAYICQUHAgQDAf/EAEIQAQABAgQBCAULAwQCAgMAAAABAgMEBQYHEQgSITY3dHWyCTE1c7ETFxgyM0FVVoKSkxQiUUJhYoGRoRVSFiMk/8QAFgEBAQEAAAAAAAAAAAAAAAAAAAEC/8QAFREBAQAAAAAAAAAAAAAAAAAAAAH/2gAMAwEAAhEDEQA/ALlgAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA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AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA/9k=" alt="Logo Nico Mallea">
+    </div>
+    <div class="banner-sep"></div>
+    <div class="banner-info">
+      <div class="banner-name">Nicolás Mallea <span>·</span></div>
+      <div class="banner-programa">Decodifica tu Voz</div>
+      <div class="banner-meta">Acompañamiento 1 a 1 · Proceso privado de 60 días · Ingeniería Emocional</div>
+    </div>
+  </div>
+
+  <h1 class="headline">
+    Sabés más de lo que lográs mostrar. Y esa brecha te está costando <em>oportunidades reales.</em>
+  </h1>
+  <p class="subheadline">
+    No es falta de técnica ni de preparación. Es un bloqueo emocional que hace que tu voz no proyecte la autoridad de tu cargo — y que ningún curso de oratoria va a resolver de raíz.
+  </p>
+
+  <div class="video-wrap">
+    <!-- Sound nudge: descomentar cuando el video esté activo
+    <div class="sound-nudge" id="soundNudge" onclick="unmuteVideo()">
+      <span class="sound-nudge-icon">🔊</span>
+      <span class="sound-nudge-text">Activá el sonido</span>
+    </div>
+    -->
+    <!-- ⚠️ REEMPLAZAR: cuando el nuevo VSL esté listo en Vimeo, pegá el iframe acá y eliminá el placeholder -->
+    <div class="video-inner" style="background:#111; display:flex; align-items:center; justify-content:center; min-height:300px;">
+      <div style="text-align:center; padding:32px;">
+        <div style="font-size:32px; margin-bottom:12px;">🎬</div>
+        <p style="font-family:'Arial',sans-serif; font-size:13px; color:#555; line-height:1.6;">Video próximamente.<br>Pegá aquí el nuevo iframe de Vimeo cuando esté listo.</p>
+        <!-- EJEMPLO: <iframe id="vimeoPlayer" src="https://player.vimeo.com/video/ID_DEL_NUEVO_VSL?title=0&byline=0&portrait=0&badge=0&autopause=0&autoplay=1&muted=1&player_id=0&app_id=58479" width="3840" height="2160" frameborder="0" allow="autoplay; fullscreen; picture-in-picture; clipboard-write; encrypted-media; web-share" referrerpolicy="strict-origin-when-cross-origin" title="VSL Decodifica tu Voz"></iframe> -->
       </div>
     </div>
   </div>
-</section>
+  <p class="video-note">Mirá el video completo antes de agendar. Dura 4 minutos.</p>
 
-<!-- TICKER -->
-<div class="ticker">
-  <div class="ticker-inner">
-    <span class="ticker-item">Primeros resultados en 7 días</span>
-    <span class="ticker-item">Claridad mental para liderar</span>
-    <span class="ticker-item">Protocolo basado en tus datos</span>
-    <span class="ticker-item">Sin dietas genéricas</span>
-    <span class="ticker-item">Sincronización circadiana</span>
-    <span class="ticker-item">Individualización radical</span>
-    <span class="ticker-item">Primeros resultados en 7 días</span>
-    <span class="ticker-item">Claridad mental para liderar</span>
-    <span class="ticker-item">Protocolo basado en tus datos</span>
-    <span class="ticker-item">Sin dietas genéricas</span>
-    <span class="ticker-item">Sincronización circadiana</span>
-    <span class="ticker-item">Individualización radical</span>
+  <div class="cta-anchor">
+    <button class="cta-anchor-btn" onclick="scrollToForm()">Quiero aplicar a la llamada gratuita</button>
   </div>
+
+  <hr class="divider">
+
+  <!-- BLOQUE 1: Reconocimiento del dolor -->
+  <div class="pain-block">
+    <div class="pain-label">¿Te reconocés en esto?</div>
+    <ul class="pain-list">
+      <li>Sabés más que la mayoría en la sala, pero cuando hablás frente a superiores algo se apaga</li>
+      <li>Te preparás el doble que los demás y aún así sentís que tu mensaje llega disminuido</li>
+      <li>Evitás exponerte, grabarte o tomar más visibilidad — aunque sabés que tendrías que hacerlo</li>
+      <li>Terminás la reunión frustrado/a: "No dije lo que quería decir, ni como quería decirlo"</li>
+      <li>Ves personas con menos trayectoria que vos ocupar espacios que deberías estar ocupando vos</li>
+      <li>Ya probaste cursos de comunicación, oratoria, o coaching — y el bloqueo sigue igual</li>
+    </ul>
+    <p class="pain-close">Eso no es falta de capacidad. No es timidez. Es un bloqueo emocional en la raíz — y tiene solución.</p>
+  </div>
+
+  <!-- BLOQUE 2: Beneficios concretos -->
+  <div class="benefits">
+    <p class="benefits-title">Lo que cambia en 60 días</p>
+    <p class="benefits-sub">Resultados concretos que reportan quienes pasaron por el proceso</p>
+    <div class="benefits-grid">
+      <div class="benefit-item">
+        <div class="bi-num">01</div>
+        <div class="bi-title">Hablás con más presencia y sin tensión</div>
+        <div class="bi-body">Dejás de sobrepensar cada palabra. Tu voz lleva el peso real de lo que sabés — en reuniones de directorio, negociaciones y exposiciones de alto impacto.</div>
+      </div>
+      <div class="benefit-item">
+        <div class="bi-num">02</div>
+        <div class="bi-title">Ocupás el espacio que ya te ganaste</div>
+        <div class="bi-body">Dejás de achicarte o quedarte en segundo plano. Empezás a liderar conversaciones que antes evitabas o en las que no te hacías escuchar.</div>
+      </div>
+      <div class="benefit-item">
+        <div class="bi-num">03</div>
+        <div class="bi-title">Se rompe el patrón que se repetía</div>
+        <div class="bi-body">No es un parche de técnica. Trabajamos la raíz emocional del bloqueo. Cuando eso se libera, el cambio no depende del estado de ánimo del día.</div>
+      </div>
+      <div class="benefit-item">
+        <div class="bi-num">04</div>
+        <div class="bi-title">Proyectás autoridad sin impostarte</div>
+        <div class="bi-body">La confianza que proyectás nace desde adentro, no de una pose aprendida. El entorno lo percibe — y empieza a responderte diferente.</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="cta-anchor">
+    <button class="cta-anchor-btn" onclick="scrollToForm()">Quiero que mi voz refleje mi nivel →</button>
+  </div>
+
+  <hr class="divider">
+
+  <!-- BLOQUE 3: Para quién es / no es -->
+  <div class="for-who">
+    <p class="for-who-title">¿Este proceso es para vos?</p>
+    <p class="for-who-sub">El programa funciona cuando hay una implicación real. Por eso no trabajo con cualquier perfil.</p>
+    <div class="for-who-grid">
+      <div class="for-who-card yes">
+        <div class="fwc-label">Sí aplica si…</div>
+        <ul>
+          <li>Sos profesional senior, manager, líder o dueño/a de negocio</li>
+          <li>Tenés capacidad y trayectoria, pero tu comunicación no las refleja</li>
+          <li>Estás dispuesto/a a incomodarte para cambiar algo de raíz</li>
+          <li>Buscás transformación real, no tips rápidos</li>
+          <li>Podés invertir en vos de forma estratégica</li>
+          <li>Querés resultados medibles, no solo "sentirte mejor"</li>
+        </ul>
+      </div>
+      <div class="for-who-card no">
+        <div class="fwc-label">No aplica si…</div>
+        <ul>
+          <li>Buscás técnicas rápidas sin proceso profundo</li>
+          <li>Querés solo información o contenido, no acompañamiento</li>
+          <li>No estás dispuesto/a a exponerte e incomodarte</li>
+          <li>Esperás que el cambio ocurra "desde afuera"</li>
+          <li>Ya hiciste mil cosas y no creés que algo pueda cambiar</li>
+          <li>Necesitás contención emocional, no transformación</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+
+  <div class="cta-anchor">
+    <button class="cta-anchor-btn" onclick="scrollToForm()">Aplicar al diagnóstico gratuito →</button>
+  </div>
+
+  <hr class="divider">
+
+  <!-- BLOQUE 4: Cómo funciona el proceso -->
+  <div class="proceso">
+    <p class="proceso-title">Cómo funciona el proceso</p>
+    <p class="proceso-sub">60 días privados, intensivos y acompañados — no un curso grabado</p>
+    <div class="proceso-steps">
+      <div class="proceso-step">
+        <div class="ps-num">1</div>
+        <div class="ps-content">
+          <div class="ps-title">Toma de conciencia — Las primeras semanas</div>
+          <div class="ps-body">Identificamos juntos qué está pasando de verdad. No "te cuesta hablar" — sino qué mecanismo específico se activa cuando te exponés y desde cuándo. Eso cambia todo el enfoque.</div>
+        </div>
+      </div>
+      <div class="proceso-step">
+        <div class="ps-num">2</div>
+        <div class="ps-content">
+          <div class="ps-title">Desbloqueo emocional — El núcleo del proceso</div>
+          <div class="ps-body">Trabajo la raíz del bloqueo, no el síntoma. Dos sesiones de 2 horas dedicadas específicamente a liberar lo que viene condicionando tu expresión. Esto es lo que ningún curso de oratoria toca.</div>
+        </div>
+      </div>
+      <div class="proceso-step">
+        <div class="ps-num">3</div>
+        <div class="ps-content">
+          <div class="ps-title">Herramientas y práctica — Construir la nueva versión</div>
+          <div class="ps-body">Incorporamos herramientas concretas: claridad del mensaje, presencia corporal, regulación emocional bajo presión, estructura al hablar. Lo que liberaste adentro empieza a verse afuera.</div>
+        </div>
+      </div>
+      <div class="proceso-step">
+        <div class="ps-num">4</div>
+        <div class="ps-content">
+          <div class="ps-title">Integración y acompañamiento continuo — Los 60 días</div>
+          <div class="ps-body">Sesiones semanales 1 a 1 de 1 hora + soporte entre sesiones por mensajes. Cuando tenés una reunión importante, una presentación o un momento que te genera tensión — te acompaño en tiempo real.</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- BLOQUE 5: Testimonios -->
+  <div class="testimonial-row">
+    <div class="testimonial">
+      <p class="testimonial-text">"Era la que más sabía en cada reunión pero terminaba en segundo plano. Hoy lidero las conversaciones que antes me paralizaban."</p>
+      <div class="testimonial-author">Laura M. · Directora de Área</div>
+    </div>
+    <div class="testimonial">
+      <p class="testimonial-text">"Pasé de evitar reuniones con el directorio a liderar presentaciones de alto impacto. El cambio fue estructural, no cosmético."</p>
+      <div class="testimonial-author">Martín R. · Gerente Comercial</div>
+    </div>
+    <div class="testimonial">
+      <p class="testimonial-text">"Tuve encuentros donde fluía con personas que hacía tiempo no hablaba. Lo que ves en el exterior es exactamente el corazón de este programa."</p>
+      <div class="testimonial-author">Carolina · Líder de Equipo</div>
+    </div>
+    <div class="testimonial">
+      <p class="testimonial-text">"Todo lo que me dijiste, aunque en su momento no me gustó, me permitió crecer y seguir el proceso de ser mi mejor versión. Gracias."</p>
+      <div class="testimonial-author">Jorge · Director Ejecutivo</div>
+    </div>
+  </div>
+
+  <!-- BLOQUE 6: Garantía (reposicionada después de testimonios) -->
+  <div class="guarantee">
+    <div class="guarantee-title">Garantía de resultado</div>
+    <p>Si al finalizar los 60 días no notás una diferencia real en tu seguridad y presencia ejecutiva, continuamos trabajando juntos/as 30 días más sin costo adicional.</p>
+  </div>
+
+  <hr class="divider">
+
+  <!-- BLOQUE 7: Urgencia / Escasez -->
+  <div class="urgency">
+    <div class="urgency-icon">⏳</div>
+    <div>
+      <div class="urgency-title">Cupos limitados por mes</div>
+      <p>El acompañamiento es <strong>100% personalizado y 1 a 1</strong>. Eso significa que solo trabajo con un número limitado de personas por mes — para garantizar la profundidad y la dedicación que el proceso requiere. Cuando los cupos se completan, la lista de espera puede extenderse varias semanas. Si la llamada de diagnóstico está disponible ahora, aprovechá el momento.</p>
+    </div>
+  </div>
+
+  <!-- BLOQUE 8: FAQ -->
+  <div class="faq">
+    <p class="faq-title">Preguntas frecuentes</p>
+    <p class="faq-sub">Las dudas más comunes antes de agendar</p>
+
+    <div class="faq-item">
+      <div class="faq-q" onclick="toggleFaq(this)">
+        <span class="faq-q-text">¿En qué se diferencia esto de un curso de oratoria o coaching tradicional?</span>
+        <span class="faq-icon">+</span>
+      </div>
+      <div class="faq-a">Los cursos de oratoria trabajan la técnica — cómo hablar, cómo pararte, qué hacer con las manos. Eso es útil si el problema es de forma. Pero si el problema es que algo se bloquea cuando la presión sube, la técnica no llega ahí. Decodifica tu Voz trabaja el origen emocional del bloqueo: qué se activa en vos, desde cuándo, y por qué. Cuando eso se libera, la expresión cambia de raíz — no como un guion aprendido.</div>
+    </div>
+
+    <div class="faq-item">
+      <div class="faq-q" onclick="toggleFaq(this)">
+        <span class="faq-q-text">¿Y si ya hice terapia, coaching o varios cursos y no cambió nada?</span>
+        <span class="faq-icon">+</span>
+      </div>
+      <div class="faq-a">Es la situación más frecuente de quienes llegan. La mayoría ya recorrió ese camino. La diferencia es que este proceso integra dos cosas que normalmente aparecen separadas: el trabajo emocional profundo Y la bajada concreta a la comunicación real. No es solo hablar de lo que te pasa — es liberar lo que te frena y ponerlo en práctica en situaciones de exposición reales.</div>
+    </div>
+
+    <div class="faq-item">
+      <div class="faq-q" onclick="toggleFaq(this)">
+        <span class="faq-q-text">¿Cuánto tiempo por semana requiere el proceso?</span>
+        <span class="faq-icon">+</span>
+      </div>
+      <div class="faq-a">Una sesión semanal de 1 hora + las acciones y ejercicios entre sesiones (que son breves y aplicables a tu vida cotidiana). El proceso está diseñado para personas con agenda cargada — no es un programa que requiere horas extra, sino uno que se integra en los espacios que ya tenés.</div>
+    </div>
+
+    <div class="faq-item">
+      <div class="faq-q" onclick="toggleFaq(this)">
+        <span class="faq-q-text">¿Es online o presencial?</span>
+        <span class="faq-icon">+</span>
+      </div>
+      <div class="faq-a">El proceso es 100% online y se puede realizar desde cualquier país. Las sesiones son videollamadas 1 a 1. El soporte y acompañamiento entre sesiones se da por mensajes de audio o texto según el momento y la necesidad.</div>
+    </div>
+
+    <div class="faq-item">
+      <div class="faq-q" onclick="toggleFaq(this)">
+        <span class="faq-q-text">¿Y si no veo resultados al final del proceso?</span>
+        <span class="faq-icon">+</span>
+      </div>
+      <div class="faq-a">Si al finalizar los 60 días no notás una diferencia real en tu seguridad y presencia, continuamos trabajando juntos/as 30 días más sin costo adicional. Esa garantía es real porque el proceso funciona cuando hay implicación genuina — y la llamada de diagnóstico existe precisamente para asegurarnos de que eso esté presente antes de empezar.</div>
+    </div>
+
+    <div class="faq-item">
+      <div class="faq-q" onclick="toggleFaq(this)">
+        <span class="faq-q-text">¿Para qué sirve la llamada de diagnóstico?</span>
+        <span class="faq-icon">+</span>
+      </div>
+      <div class="faq-a">Es una sesión de 45 minutos 1 a 1 conmigo, sin costo. Vamos a explorar qué está pasando con tu comunicación, qué te frena, y si Decodifica tu Voz es el proceso correcto para vos. No es una llamada de venta genérica: salís con claridad sobre tu situación, hayas decidido avanzar o no.</div>
+    </div>
+  </div>
+
+  <div class="cta-anchor">
+    <button class="cta-anchor-btn" onclick="scrollToForm()">Quiero aplicar a la llamada gratuita →</button>
+  </div>
+
+  <hr class="divider">
+
+  <!-- FORMULARIO DE PRE-CALIFICACIÓN -->
+  <div class="form-section" id="formulario">
+    <div class="form-section-pretitle">Aplicación gratuita</div>
+    <p class="form-section-title">Contame un poco sobre tu situación</p>
+    <p class="form-section-intro">Antes de conectarnos, necesito entender tu situación para que la conversación tenga valor real para vos. Son 2 minutos.</p>
+
+    <form onsubmit="handleSubmit(event)">
+
+      <!-- Datos personales -->
+      <div class="form-row">
+        <div class="form-group">
+          <label class="form-label">Nombre <span>*</span></label>
+          <input type="text" name="nombre" class="form-input" placeholder="Tu nombre" required>
+        </div>
+        <div class="form-group">
+          <label class="form-label">Apellido <span>*</span></label>
+          <input type="text" name="apellido" class="form-input" placeholder="Tu apellido" required>
+        </div>
+      </div>
+
+      <div class="form-group">
+        <label class="form-label">WhatsApp (con código de país) <span>*</span></label>
+        <input type="tel" name="whatsapp" class="form-input" placeholder="Ej: +54 9 11 1234 5678" required>
+      </div>
+
+      <hr class="form-divider">
+
+      <!-- Pregunta 1 -->
+      <div class="form-group">
+        <label class="form-label">1. ¿Cuál es tu cargo o rol actual? <span>*</span></label>
+        <div class="form-options">
+          <label class="form-option"><input type="radio" name="cargo" value="manager" required><span class="form-option-label">Manager / Jefe de área</span></label>
+          <label class="form-option"><input type="radio" name="cargo" value="director"><span class="form-option-label">Director/a o Gerente</span></label>
+          <label class="form-option"><input type="radio" name="cargo" value="dueno"><span class="form-option-label">Dueño/a de negocio</span></label>
+          <label class="form-option"><input type="radio" name="cargo" value="lider"><span class="form-option-label">Líder de equipo</span></label>
+          <label class="form-option"><input type="radio" name="cargo" value="otro"><span class="form-option-label">Otro</span></label>
+        </div>
+      </div>
+
+      <!-- Pregunta 2 -->
+      <div class="form-group">
+        <label class="form-label">2. ¿En qué momento sentís más que tu comunicación no refleja tu nivel real? <span>*</span></label>
+        <div class="form-options">
+          <label class="form-option"><input type="radio" name="momento" value="superiores" required><span class="form-option-label">En reuniones con superiores o directorio</span></label>
+          <label class="form-option"><input type="radio" name="momento" value="proyectos"><span class="form-option-label">Al defender proyectos o propuestas de alto impacto</span></label>
+          <label class="form-option"><input type="radio" name="momento" value="equipo"><span class="form-option-label">Al liderar mi equipo bajo presión</span></label>
+          <label class="form-option"><input type="radio" name="momento" value="negociacion"><span class="form-option-label">Al negociar o cerrar acuerdos</span></label>
+          <label class="form-option"><input type="radio" name="momento" value="varios"><span class="form-option-label">En varios de estos momentos</span></label>
+        </div>
+      </div>
+
+      <!-- Pregunta 3 -->
+      <div class="form-group">
+        <label class="form-label">3. ¿Qué intentaste antes para resolver esto? <span>*</span></label>
+        <div class="form-options">
+          <label class="form-option"><input type="radio" name="intentos" value="oratoria" required><span class="form-option-label">Cursos de oratoria o comunicación</span></label>
+          <label class="form-option"><input type="radio" name="intentos" value="coaching"><span class="form-option-label">Coaching o terapia</span></label>
+          <label class="form-option"><input type="radio" name="intentos" value="solo"><span class="form-option-label">Lo trabajé solo/a sin resultados claros</span></label>
+          <label class="form-option"><input type="radio" name="intentos" value="nada"><span class="form-option-label">Nada todavía, pero lo necesito resolver</span></label>
+          <label class="form-option"><input type="radio" name="intentos" value="varios"><span class="form-option-label">Varias de las anteriores</span></label>
+        </div>
+      </div>
+
+      <!-- Pregunta 4 -->
+      <div class="form-group">
+        <label class="form-label">4. ¿Qué querés que cambie en los próximos 60 días? <span>*</span></label>
+        <textarea name="objetivo" class="form-textarea" placeholder="Contame en tus palabras qué resultado concreto estás buscando..." required></textarea>
+      </div>
+
+      <!-- Pregunta 5 -->
+      <div class="form-group">
+        <label class="form-label">5. Para trabajar en esto, ¿estás en condiciones de hacer una inversión de entre...? <span>*</span></label>
+        <div class="form-options">
+          <label class="form-option"><input type="radio" name="presupuesto" value="500-1000" required><span class="form-option-label">USD 500 a 1.000</span></label>
+          <label class="form-option"><input type="radio" name="presupuesto" value="1000-2000"><span class="form-option-label">USD 1.000 a 2.000</span></label>
+          <label class="form-option"><input type="radio" name="presupuesto" value="2000+"><span class="form-option-label">USD 2.000 o más</span></label>
+          <label class="form-option"><input type="radio" name="presupuesto" value="no-se"><span class="form-option-label">Todavía no lo sé</span></label>
+        </div>
+      </div>
+
+      <button type="submit" class="form-submit">Enviar mi aplicación →</button>
+      <p class="form-note">Sin costo · Revisamos tu aplicación y te contactamos por WhatsApp para coordinar la llamada.</p>
+
+    </form>
+  </div>
+
 </div>
 
-<!-- CONFLICTO -->
-<section class="sec-conflict">
-  <div class="container">
-    <div class="fade-up">
-      <div class="sec-label">El problema</div>
-      <h2>En tu trabajo, tenés el control.<br><em>En tu cuerpo, sentís que algo se rompió.</em></h2>
-      <p class="conflict-text">Sos una persona activa. Tenés responsabilidades, decisiones importantes, gente que depende de vos, una familia.<br><br>Pero hace tiempo sentís que tu energía no acompaña… y no sabés por qué.</p>
-      <p class="conflict-quote">La medicina convencional te da indicaciones generales, una receta, te pide que cuides la alimentación y te manda a casa — nadie te explica por qué cada día te sentís peor, nadie te explica cómo revertir los síntomas desde la raíz.</p>
-      <div class="pain-label">¿Te identificás con alguno de estos?</div>
-    </div>
-    <div class="pain-grid">
-      <div class="pain-card fade-up" style="transition-delay:.1s">
-        <span class="pain-icon">📊</span>
-        <div class="pain-title">Glucemias que no bajan</div>
-        <p class="pain-body">Te da miedo medirte en ayunas. Los números siguen altos, aunque "hiciste todo bien". Sentís frustración, enojo y cansancio. Tu cuerpo está desregulado.</p>
-      </div>
-      <div class="pain-card fade-up" style="transition-delay:.2s">
-        <span class="pain-icon">⚖️</span>
-        <div class="pain-title">El peso que no baja</div>
-        <p class="pain-body">Probaste de todo — dietas, caminatas, pastillas, inyecciones. Bajás un poco y después volvés a subir. Sentís que tu cuerpo no responde como antes.</p>
-      </div>
-      <div class="pain-card fade-up" style="transition-delay:.3s">
-        <span class="pain-icon">🌙</span>
-        <div class="pain-title">El sueño roto</div>
-        <p class="pain-body">Te cuesta dormirte, te despertás varias veces en la noche, amanecés sin haber descansado. Te es agotador comenzar el día así.</p>
-      </div>
-    </div>
-  </div>
-</section>
-
-<div class="divider"></div>
-
-<!-- MECANISMO -->
-<section class="sec-mech">
-  <svg class="mech-leaf" viewBox="0 0 400 400" fill="none">
-    <path d="M200 20 C280 60 380 150 360 280 C340 380 220 400 140 360 C60 320 20 200 60 120 C100 40 160 10 200 20Z" fill="#4a6741"/>
-    <path d="M200 20 L200 400" stroke="#6b8f5e" stroke-width="2"/>
-    <path d="M120 100 C160 120 200 100 240 120" stroke="#6b8f5e" stroke-width="1.5" opacity="0.6"/>
-    <path d="M100 160 C150 180 200 160 260 180" stroke="#6b8f5e" stroke-width="1.5" opacity="0.5"/>
-    <path d="M100 220 C155 240 200 220 265 240" stroke="#6b8f5e" stroke-width="1.5" opacity="0.4"/>
-    <path d="M110 280 C158 298 200 280 260 298" stroke="#6b8f5e" stroke-width="1.5" opacity="0.3"/>
-  </svg>
-  <div class="container">
-    <div class="fade-up">
-      <div class="sec-label">La solución</div>
-      <div class="mech-statement">No es otra dieta más.<br><em>Es entender por qué tu cuerpo dejó de responder.</em></div>
-      <p class="mech-intro">El programa Reset Metabólico de la Lic. Nina Alvarez Tatar trabaja la causa raíz — cómo funciona tu metabolismo en tu contexto real. Porque bajar el azúcar o el peso de forma duradera requiere un plan hecho para vos y de forma integral, no para "el paciente promedio".</p>
-    </div>
-    <div class="pillars">
-      <div class="pillar fade-up" style="transition-delay:.1s">
-        <span class="pillar-num">01 ·</span>
-        <div class="pillar-title">Tu caso, tu plan</div>
-        <p class="pillar-body">Ningún plan es igual para todos. Buscamos la causa real de por qué tu cuerpo acumula grasa o no regula el azúcar, y armamos un protocolo para vos.</p>
-      </div>
-      <div class="pillar fade-up" style="transition-delay:.2s">
-        <span class="pillar-num">02 ·</span>
-        <div class="pillar-title">Comés bien, te movés adecuadamente, dormís mejor</div>
-        <p class="pillar-body">Ajustamos qué y cuándo comés, optimizamos el entrenamiento para que tu cuerpo recupere el ritmo natural — más energía de día, mejor descanso de noche.</p>
-      </div>
-      <div class="pillar fade-up" style="transition-delay:.3s">
-        <span class="pillar-num">03 ·</span>
-        <div class="pillar-title">Resultados que se ven y se sienten</div>
-        <p class="pillar-body">Menos glucosa, menos kilos de grasa, más músculo, más energía. Todo con seguimiento en tus análisis de laboratorio para que veas el cambio con números reales.</p>
-      </div>
-    </div>
-  </div>
-</section>
-
-<div class="divider"></div>
-
-<!-- PRUEBA SOCIAL -->
-<section class="sec-social">
-  <div class="container--wide">
-    <div class="social-head fade-up">
-      <div class="sec-label" style="justify-content:center">Evidencia</div>
-      <h2>Los datos <em>no mienten.</em></h2>
-      <p class="social-sub">Resultados reales de personas que recuperaron su energía, bajaron de peso y mejoraron sus análisis</p>
-    </div>
-
-    <div class="videos-grid fade-up" style="transition-delay:.1s">
-      <div class="video-slot" id="video-1">
-        <iframe
-          id="vimeo-1"
-          src="https://player.vimeo.com/video/1189383571?title=0&byline=0&portrait=0&badge=0&autopause=0&player_id=vimeo-1&app_id=58479"
-          frameborder="0"
-          allow="autoplay; fullscreen; picture-in-picture; clipboard-write; encrypted-media"
-          referrerpolicy="strict-origin-when-cross-origin"
-          title="Testimonio Claudio">
-        </iframe>
-      </div>
-      <div class="video-slot" id="video-2">
-        <iframe
-          id="vimeo-2"
-          src="https://player.vimeo.com/video/1189385674?title=0&byline=0&portrait=0&badge=0&autopause=1&player_id=vimeo-2&app_id=58479"
-          frameborder="0"
-          allow="autoplay; fullscreen; picture-in-picture; clipboard-write; encrypted-media"
-          referrerpolicy="strict-origin-when-cross-origin"
-          title="Testimonio Mario">
-        </iframe>
-      </div>
-    </div>
-
-    <div class="stats-row fade-up" style="transition-delay:.2s; margin-top:16px">
-      <div class="stat-box"><span class="stat-val">7d</span><span class="stat-lbl">Primeros resultados</span></div>
-      <div class="stat-box"><span class="stat-val">12s</span><span class="stat-lbl">Duración del programa</span></div>
-      <div class="stat-box"><span class="stat-val">1:1</span><span class="stat-lbl">Acompañamiento exclusivo</span></div>
-      <div class="stat-box"><span class="stat-val">100%</span><span class="stat-lbl">Basado en tus datos</span></div>
-    </div>
-  </div>
-</section>
-
-<div class="divider"></div>
-
-<!-- FORMULARIO -->
-<section class="sec-form" id="diagnostico">
-  <div class="container">
-    <div class="form-head fade-up">
-      <div class="sec-label" style="justify-content:center">Pre-calificación</div>
-      <h2>Completá tu perfil<br><em>en pocos pasos.</em></h2>
-      <p>Este breve formulario permite que Nina revise tu caso personalmente y reserve tu Sesión de Diagnóstico Inicial.</p>
-    </div>
-
-    <div class="form-wrap fade-up" style="transition-delay:.1s">
-
-      <!-- DATOS DE CONTACTO -->
-      <div class="form-step">
-        <span class="step-tag">Datos de contacto</span>
-        <div class="contact-fields">
-          <div class="field-row">
-            <div class="field-group">
-              <label class="field-label">Nombre</label>
-              <input type="text" name="nombre" class="field-input" placeholder="Tu nombre">
-            </div>
-            <div class="field-group">
-              <label class="field-label">Apellido</label>
-              <input type="text" name="apellido" class="field-input" placeholder="Tu apellido">
-            </div>
-          </div>
-          <div class="field-group">
-            <label class="field-label">Número de celular</label>
-            <input type="tel" name="celular" class="field-input" placeholder="Ej: +54 9 11 1234-5678">
-          </div>
-        </div>
-      </div>
-
-      <div class="form-step">
-        <span class="step-tag">Pregunta 01 / 04</span>
-        <div class="step-q">¿Cuál de estas opciones describe mejor tu situación?</div>
-        <div class="opts">
-          <label class="opt"><input type="radio" name="q1" value="dueno"> Soy dueño/a de un negocio o comercio</label>
-          <label class="opt"><input type="radio" name="q1" value="directivo"> Soy gerente, directivo o jefe en una empresa</label>
-          <label class="opt"><input type="radio" name="q1" value="profesional"> Soy profesional independiente o empleado activo</label>
-          <label class="opt"><input type="radio" name="q1" value="otro"> Otra situación</label>
-        </div>
-      </div>
-
-      <div class="form-step">
-        <span class="step-tag">Pregunta 02 / 04</span>
-        <div class="step-q">¿Cuál es tu situación de salud actual?</div>
-        <div class="opts">
-          <label class="opt"><input type="radio" name="q2" value="t2"> Tengo Diabetes Tipo 2</label>
-          <label class="opt"><input type="radio" name="q2" value="pre"> Me dijeron que tengo pre-diabetes</label>
-          <label class="opt"><input type="radio" name="q2" value="sobrepeso"> Tengo sobrepeso y me cuesta bajarlo</label>
-          <label class="opt"><input type="radio" name="q2" value="varios"> Tengo más de una de estas situaciones</label>
-        </div>
-      </div>
-
-      <div class="form-step">
-        <span class="step-tag">Pregunta 03 / 04</span>
-        <div class="step-q">¿Cuál es el síntoma que más te molesta hoy?</div>
-        <div class="opts">
-          <label class="opt"><input type="radio" name="q3" value="energia"> Falta de energía — me canso rápido o me siento sin fuerza</label>
-          <label class="opt"><input type="radio" name="q3" value="sueno"> Alteración del sueño — no descanso bien o me desvelo</label>
-          <label class="opt"><input type="radio" name="q3" value="sobrepeso"> Sobrepeso — no logro bajar y me siento pesado/a</label>
-          <label class="opt"><input type="radio" name="q3" value="ereccion"> Disfunción eréctil</label>
-          <label class="opt"><input type="radio" name="q3" value="nebulosa"> Me cuesta concentrarme o pensar con claridad</label>
-        </div>
-      </div>
-
-      <div class="form-step">
-        <span class="step-tag">Pregunta 04 / 04</span>
-        <div class="step-q">Este es un programa personalizado con seguimiento 1 a 1 durante 12 semanas. ¿Estás en condiciones de invertir en tu salud para lograr un cambio real?</div>
-        <div class="opts">
-          <label class="opt"><input type="radio" name="q4" value="si"> Sí, estoy listo/a para comprometer tiempo y recursos</label>
-          <label class="opt"><input type="radio" name="q4" value="info"> Quiero saber más antes de decidir</label>
-        </div>
-        <p class="form-footnote">* El costo del programa se informa en la llamada de diagnóstico, donde Nina evalúa tu caso de forma personalizada.</p>
-      </div>
-
-      <div class="form-cta">
-        <button class="btn btn-primary" id="form-btn">
-          Solicitar Diagnóstico Estratégico
-        </button>
-        <p class="form-disclaimer">Al continuar, serás redirigido/a a una página de confirmación.<br>Cupos limitados — programa de acceso exclusivo.</p>
-      </div>
-
-    </div>
-  </div>
-</section>
-
-<!-- CTA FINAL -->
-<section class="sec-cta">
-  <svg class="cta-leaf" viewBox="0 0 400 400" fill="none">
-    <path d="M200 20 C280 60 380 150 360 280 C340 380 220 400 140 360 C60 320 20 200 60 120 C100 40 160 10 200 20Z" fill="#2d4a2d"/>
-    <path d="M200 20 L200 400" stroke="#4a6741" stroke-width="3"/>
-    <path d="M120 100 C160 120 200 100 240 120" stroke="#4a6741" stroke-width="2" opacity="0.7"/>
-    <path d="M100 160 C150 180 200 160 260 180" stroke="#4a6741" stroke-width="2" opacity="0.6"/>
-    <path d="M100 220 C155 240 200 220 265 240" stroke="#4a6741" stroke-width="2" opacity="0.5"/>
-    <path d="M110 280 C158 298 200 280 260 298" stroke="#4a6741" stroke-width="2" opacity="0.4"/>
-  </svg>
-  <div class="container">
-    <div class="cta-inner fade-up">
-      <span class="cta-pre">El primer paso es el más importante</span>
-      <h2 class="cta-h">Recuperá tu energía.<em>Recuperate vos.</em></h2>
-      <p class="cta-sub">Completá el formulario y Nina revisa tu caso personalmente para ver si el programa es para vos.</p>
-      <div class="btn-group">
-        <a href="#diagnostico" class="btn btn-primary">Solicitar Diagnóstico Estratégico</a>
-        <a href="#diagnostico" class="btn btn-outline">Escribir por WhatsApp</a>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- FOOTER -->
-<footer>
-  <div class="container--wide">
-    <div class="footer-inner">
-      <span class="footer-brand">Nina Alvarez Tatar · Reset Metabólico</span>
-      <p class="footer-note">Este programa no reemplaza el tratamiento médico convencional. Los resultados individuales pueden variar. Consultá siempre con tu médico tratante antes de iniciar cualquier protocolo nutricional o de cambio de hábitos.</p>
-    </div>
-  </div>
-</footer>
-
+/* Script de Vimeo */
 <script src="https://player.vimeo.com/api/player.js"></script>
 <script>
-  // ─── REEMPLAZÁ ESTA URL con la de tu Google Apps Script desplegado ───
-  const SCRIPT_URL = 'https://script.google.com/macros/s/AKfycbxl9RN8WnGDzXXIA6CeQIvG5fQFvecleJQsdbXbLpBDdgTFhGhma3_Td_J0B7jdFAg/exec';
+  // ─── Vimeo ───────────────────────────────────────────────
+  var player = new Vimeo.Player(document.getElementById('vimeoPlayer'));
+  function unmuteVideo() {
+    player.setMuted(false);
+    player.setVolume(1);
+    var nudge = document.getElementById('soundNudge');
+    if (nudge) nudge.classList.add('hidden');
+  }
 
-  // Scroll reveal
-  const obs = new IntersectionObserver(entries => {
-    entries.forEach(e => { if (e.isIntersecting) e.target.classList.add('visible'); });
-  }, { threshold: 0.1 });
-  document.querySelectorAll('.fade-up').forEach(el => obs.observe(el));
+  // ─── FAQ accordion ───────────────────────────────────────
+  function toggleFaq(el) {
+    var item = el.parentElement;
+    var wasOpen = item.classList.contains('open');
+    document.querySelectorAll('.faq-item').forEach(function(i){ i.classList.remove('open'); });
+    if (!wasOpen) item.classList.add('open');
+  }
 
-  // Autoplay primer video al hacer scroll hasta la sección
-  let video1played = false;
-  const video1section = document.getElementById('video-1');
-  const scrollObs = new IntersectionObserver(entries => {
-    entries.forEach(e => {
-      if (e.isIntersecting && !video1played) {
-        video1played = true;
-        const player = new Vimeo.Player(document.getElementById('vimeo-1'));
-        player.play();
-      }
-    });
-  }, { threshold: 0.5 });
-  if (video1section) scrollObs.observe(video1section);
+  // ─── Scroll al formulario ────────────────────────────────
+  function scrollToForm() {
+    var el = document.getElementById('formulario');
+    if (el) el.scrollIntoView({ behavior: 'smooth', block: 'start' });
+  }
 
-  // Radio highlight
-  document.querySelectorAll('.opt').forEach(label => {
-    label.addEventListener('click', function() {
-      const name = this.querySelector('input').name;
-      document.querySelectorAll(`input[name="${name}"]`).forEach(i => i.closest('.opt').classList.remove('selected'));
-      this.classList.add('selected');
-      this.closest('.form-step').classList.remove('step-error');
-    });
-  });
+  // ─── Leer UTMs de la URL ─────────────────────────────────
+  function getUTMs() {
+    var params = new URLSearchParams(window.location.search);
+    return {
+      utm_source:   params.get('utm_source')   || '',
+      utm_medium:   params.get('utm_medium')   || '',
+      utm_campaign: params.get('utm_campaign') || '',
+      utm_content:  params.get('utm_content')  || '',
+      full_url:     window.location.href
+    };
+  }
 
-  // Clear error on text input
-  document.querySelectorAll('.field-input').forEach(input => {
-    input.addEventListener('input', function() {
-      this.classList.remove('input-error');
-      const step = this.closest('.form-step');
-      if (!step.querySelector('.field-input.input-error')) step.classList.remove('step-error');
-    });
-  });
-
-  // Validation + submit
-  document.getElementById('form-btn').addEventListener('click', function(e) {
+  // ─── Envío del formulario ────────────────────────────────
+  function handleSubmit(e) {
     e.preventDefault();
-    let valid = true;
+    var form = e.target;
+    var utms = getUTMs();
 
-    // Validate text fields
-    ['nombre', 'apellido', 'celular'].forEach(name => {
-      const input = document.querySelector(`input[name="${name}"]`);
-      const step = input.closest('.form-step');
-      if (!input.value.trim()) {
-        input.classList.add('input-error');
-        step.classList.add('step-error');
-        valid = false;
-      }
-    });
-
-    // Validate radio groups
-    ['q1', 'q2', 'q3', 'q4'].forEach(name => {
-      const selected = document.querySelector(`input[name="${name}"]:checked`);
-      const step = document.querySelector(`input[name="${name}"]`).closest('.form-step');
-      if (!selected) {
-        step.classList.add('step-error');
-        valid = false;
-      }
-    });
-
-    if (!valid) {
-      const firstError = document.querySelector('.step-error');
-      if (firstError) firstError.scrollIntoView({ behavior: 'smooth', block: 'center' });
-      return;
-    }
-
-    // Recopilar datos
-    const data = {
-      nombre:   document.querySelector('input[name="nombre"]').value.trim(),
-      apellido: document.querySelector('input[name="apellido"]').value.trim(),
-      celular:  document.querySelector('input[name="celular"]').value.trim(),
-      q1: document.querySelector('input[name="q1"]:checked').value,
-      q2: document.querySelector('input[name="q2"]:checked').value,
-      q3: document.querySelector('input[name="q3"]:checked').value,
-      q4: document.querySelector('input[name="q4"]:checked').value,
-      fecha: new Date().toLocaleString('es-AR')
+    // Armar objeto con todos los datos
+    var payload = {
+      fecha:        new Date().toLocaleString('es-AR', { timeZone: 'America/Argentina/Buenos_Aires' }),
+      nombre:       form.nombre.value.trim(),
+      apellido:     form.apellido.value.trim(),
+      whatsapp:     form.whatsapp.value.trim(),
+      cargo:        form.cargo.value,
+      momento:      form.momento.value,
+      intentos:     form.intentos.value,
+      objetivo:     form.objetivo.value.trim(),
+      presupuesto:  form.presupuesto.value,
+      utm_source:   utms.utm_source,
+      utm_medium:   utms.utm_medium,
+      utm_campaign: utms.utm_campaign,
+      utm_content:  utms.utm_content,
+      full_url:     utms.full_url
     };
 
-    // Cambiar texto del botón mientras envía
-    const btn = document.getElementById('form-btn');
-    btn.textContent = 'Enviando...';
-    btn.style.opacity = '0.7';
-    btn.style.pointerEvents = 'none';
+    // Disparar evento Lead en Meta Pixel
+    if (typeof fbq !== 'undefined') {
+      fbq('track', 'Lead');
+    }
 
-    // Enviar a Google Apps Script
+    // Enviar a Google Sheets via App Script
+    var SCRIPT_URL = 'https://script.google.com/macros/s/AKfycbz8drQ0A3nK5kIZ1m-_po_iJdlERz3lU7pw4Vpm50yIq71X7i-fqtSO3yiq5F10AqRVgQ/exec';
     fetch(SCRIPT_URL, {
       method: 'POST',
       mode: 'no-cors',
       headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify(data)
-    })
-    .then(() => {
-      window.location.href = '/gracias.html';
-    })
-    .catch(() => {
-      // Si falla el envío igual redirige para no bloquear al usuario
-      window.location.href = '/gracias.html';
+      body: JSON.stringify(payload)
     });
-  });
+
+    // Redirigir a página de gracias
+    // Reemplazá con la URL real de tu página de gracias en Vercel
+    window.location.href = '/gracias';
+  }
 </script>
 </body>
 </html>
